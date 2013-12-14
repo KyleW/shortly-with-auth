@@ -165,7 +165,7 @@ post '/links' do
     link.as_json.merge(base_url: request.base_url).to_json
 end
 
-get '/:url' do
+get '/:url`' do
     link = Link.find_by_code params[:url]
     raise Sinatra::NotFound if link.nil?
     link.clicks.create!

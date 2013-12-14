@@ -1,4 +1,4 @@
-<div ng-controller="viewLinks">
+  <div ng-controller="viewLinks">
   
   <div class="search">
     <label>Search:</label>
@@ -17,10 +17,8 @@
       <th>Visits</th>
     </tr>
     <tr ng-repeat="link in links | orderBy:sortby | filter:search:strict">
-      <td><a href="{{link.url}}">{{ link.title }}</a></td>
+      <td><a href="{{link.base_url}}/:{{link.code}}">{{ link.title }}</a></td>
       <td>{{link.visits}}</td>
     </tr>
   </table>
 </div>
-
-

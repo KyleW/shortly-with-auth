@@ -89,12 +89,6 @@ get '/' do
     File.read(File.join('index.html'))
 end
 
-get '/main.js' do
-    # erb :index
-    # File.read(File.join('public', 'index.html'))
-    File.read('main.js')
-end
-
 get '/login' do
     erb :login
 end

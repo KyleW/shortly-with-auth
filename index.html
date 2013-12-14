@@ -2,39 +2,56 @@
 <html ng-app="myApp">
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="public/styles.css">
+
 </head>
 <body>
-<!--     
-  <div>
-    <label>Name:</label>
-    <input type="text" ng-model="yourName" placeholder="Enter a name here">
-    <hr>
-    <h1>Hello {{yourName}}!</h1>
-  </div> 
--->
+
+  <div id = "header">
+    <h1>Shortly</h1>
+  </div>
+
+
+  <div class="navigation">
+    <ul>
+      <li><a href="#">View Links</a></li>
+      <li><a href="##">Shorten New Links</a></li>
+    </ul>
+  </div>
+
+  <div class="search">
+    <label>Search:</label>
+      <input type="text" ng-model="search.url" placeholder="Enter a url here">
+  </div>
+  
+
+
 
 <div ng-controller="myController">
-  {{working}}
   <ul>
-    <li ng-repeat="link in links"><a href="{{link.url}}">{{ link.title }}</a></li>
+    <li ng-repeat="link in links | orderBy:link.visits | filter:search:strict">
+      <a href="{{link.url}}">{{ link.title }}</a>
+      {{link.visits}}
+    </li>
   </ul>
 </div>
 
-<!-- <script src="./main.js"></script>  -->
+<!-- <script src="main.js"></script>  -->
+
 <script >   
-angular
-.module('myApp', [])
-.controller('myController', function($scope, $http) {
-  $scope.working="Here's where some links will go";
-  $http({
-    method: "GET",
-    url: "http://localhost:4567/links"
-  }).success(function(data){
-    console.log(data);
-    $scope.links = data;
-        // Resolve the cross origin issue
-      })
-});
+  angular
+    .module('myApp', [])
+    .controller('myController', function($scope, $http) {
+      $scope.working="Here's where some links will go";
+      $http({
+        method: "GET",
+        url: "http://localhost:4567/links"
+      }).success(function(data){
+        console.log(data);
+        $scope.links = data;
+            // Resolve the cross origin issue
+          })
+  });
 </script>
 
 

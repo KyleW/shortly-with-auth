@@ -13,30 +13,30 @@
   </div> 
 -->
 
-    <div ng-controller="myController">
-      {{working}}
-      <ul>
-        <li ng-repeat="link in links">{{ link.title }}</li>
-      </ul>
-    </div>
+<div ng-controller="myController">
+  {{working}}
+  <ul>
+    <li ng-repeat="link in links"><a href="{{link.url}}">{{ link.title }}</a></li>
+  </ul>
+</div>
 
-    <!-- <script src="./main.js"></script>  -->
-    <script >   
-    angular
-    .module('myApp', [])
-    .controller('myController', function($scope, $http) {
-      $scope.working="Here's where some links will go";
-      $http({
-        method: "GET",
-        url: "http://localhost:4567/links"
-      }).success(function(data){
-        console.log(data);
-        $scope.links = data;
+<!-- <script src="./main.js"></script>  -->
+<script >   
+angular
+.module('myApp', [])
+.controller('myController', function($scope, $http) {
+  $scope.working="Here's where some links will go";
+  $http({
+    method: "GET",
+    url: "http://localhost:4567/links"
+  }).success(function(data){
+    console.log(data);
+    $scope.links = data;
         // Resolve the cross origin issue
       })
-    });
-    </script>
+});
+</script>
 
 
-  </body>
-  </html>
+</body>
+</html>

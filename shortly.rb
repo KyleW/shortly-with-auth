@@ -75,7 +75,7 @@ end
 ['/', "/create", "/links"].each do |path|
     before path do
         # redirect('/login') unless logged_in?
-        halt [401, {error: 'No token'}.to_json] unless logged_in? || api_user?
+        # halt [401, {error: 'No token'}.to_json] unless logged_in? || api_user?
     end
 end
 
@@ -85,23 +85,22 @@ end
 
 get '/' do
     # erb :index
-    # File.read(File.join('public', 'index.html'))
-    File.read(File.join('index.html'))
+    File.read(File.join('public', 'index.html'))
 end
 
 # TODO: set correct content type here
 
-get '/styles.css' do
-    # erb :index
-    # File.read(File.join('public', 'index.html'))
-    File.read('./public/styles.css')
-end
+# get '/styles.css' do
+#     # erb :index
+#     # File.read(File.join('public', 'index.html'))
+#     File.read('./public/styles.css')
+# end
 
-get '/main.js' do
-    # erb :index
-    # File.read(File.join('public', 'index.html'))
-    File.read('main.js')
-end
+# get '/main.js' do
+#     # erb :index
+#     # File.read(File.join('public', 'index.html'))
+#     File.read('main.js')
+# end
 
 get '/login' do
     erb :login

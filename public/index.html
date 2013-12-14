@@ -40,11 +40,12 @@
   </ul>
 </div>
 
-<div ng-controller = "createLinks">
-  <form>
-      <label>Shorten a URL:</label>
-      <input type="text" ng-model="toCreate" placeholder="Enter a url here">
-      <button type="submit"> Shorten</button>
+
+<div ng-controller="createLinks">
+  <form ng-submit="submit()">
+    Enter a URL and hit enter:
+    <input type="text" ng-model="newURL" name="newURL" />
+    <input type="submit" id="submit" value="Submit" />
   </form>
 </div>
 

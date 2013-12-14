@@ -21,6 +21,7 @@ angular.module('myApp', [])
           data: JSON.stringify(temp)
         }).then(function(){
           console.log("sent in a new link.")
+          $scope.newURL="";
         })
       // }
     };

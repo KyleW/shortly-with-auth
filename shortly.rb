@@ -88,20 +88,6 @@ get '/' do
     File.read(File.join('public', 'index.html'))
 end
 
-# TODO: set correct content type here
-
-# get '/styles.css' do
-#     # erb :index
-#     # File.read(File.join('public', 'index.html'))
-#     File.read('./public/styles.css')
-# end
-
-# get '/main.js' do
-#     # erb :index
-#     # File.read(File.join('public', 'index.html'))
-#     File.read('main.js')
-# end
-
 get '/login' do
     erb :login
 end

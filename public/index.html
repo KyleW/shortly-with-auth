@@ -31,7 +31,7 @@
   </div>
 
 
-<div ng-controller="myController">
+<div ng-controller="viewLinks">
   <ul>
     <li ng-repeat="link in links | orderBy:sortby | filter:search:strict">
       <a href="{{link.url}}">{{ link.title }}</a>
@@ -40,26 +40,16 @@
   </ul>
 </div>
 
+<div ng-controller = "createLinks">
+  <form>
+      <label>Shorten a URL:</label>
+      <input type="text" ng-model="toCreate" placeholder="Enter a url here">
+      <button type="submit"> Shorten</button>
+  </form>
+</div>
 
 
 <script src="main.js"></script> 
-
-<script >   
-  angular
-    .module('myApp', [])
-    .controller('myController', function($scope, $http) {
-      $scope.working="Here's where some links will go";
-      $http({
-        method: "GET",
-        url: "http://localhost:4567/links"
-      }).success(function(data){
-        console.log(data);
-        $scope.links = data;
-            // Resolve the cross origin issue
-          })
-  });
-</script>
-
 
 </body>
 </html>

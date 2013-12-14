@@ -1,0 +1,26 @@
+<div ng-controller="viewLinks">
+  
+  <div class="search">
+    <label>Search:</label>
+      <input type="text" ng-model="search.url" placeholder="Enter a url here">
+    <label>Sort:</label>
+     <select name="sortby" ng-model="sortby">
+        <option value="link.visits">Most Visits</option>
+        <option value="link.created_at">Latest</option>
+        <option value="link.updated_at">Recently Visited</option>
+    </select>
+  </div>
+
+  <table border = "1" cellspacing="0" >
+    <tr>
+      <th>Sites</th>
+      <th>Visits</th>
+    </tr>
+    <tr ng-repeat="link in links | orderBy:sortby | filter:search:strict">
+      <td><a href="{{link.url}}">{{ link.title }}</a></td>
+      <td>{{link.visits}}</td>
+    </tr>
+  </table>
+</div>
+
+

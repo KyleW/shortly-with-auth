@@ -2,6 +2,8 @@
 <html ng-app="myApp">
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.js"></script>
+
   <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
@@ -11,43 +13,12 @@
     <h1>Shortly</h1>
   </div>
 
-
   <div class="navigation">
     <ul>
       <li><a href="#">View Links</a></li>
       <li><a href="##">Shorten Links</a></li>
     </ul>
   </div>
-
-  <div class="search">
-    <label>Search:</label>
-      <input type="text" ng-model="search.url" placeholder="Enter a url here">
-    <label>Sort:</label>
-     <select name="sortby" ng-model="sortby">
-        <option value="link.visits">Most Visits</option>
-        <option value="link.created_at">Latest</option>
-        <option value="link.updated_at">Recently Visited</option>
-    </select>
-  </div>
-
-
-<div ng-controller="viewLinks">
-  <ul>
-    <li ng-repeat="link in links | orderBy:sortby | filter:search:strict">
-      <a href="{{link.url}}">{{ link.title }}</a>
-      <p>Number of visits: {{link.visits}}<p>
-    </li>
-  </ul>
-</div>
-
-
-<div ng-controller="createLinks">
-  <form ng-submit="submit()">
-    Enter a URL and hit enter:
-    <input type="text" ng-model="newURL" name="newURL" />
-    <input type="submit" id="submit" value="Submit" />
-  </form>
-</div>
 
 
 <script src="main.js"></script> 

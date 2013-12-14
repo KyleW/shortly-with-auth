@@ -2,7 +2,7 @@
 <html ng-app="myApp">
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="public/styles.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
 
 </head>
 <body>
@@ -22,21 +22,27 @@
   <div class="search">
     <label>Search:</label>
       <input type="text" ng-model="search.url" placeholder="Enter a url here">
+    <label>Sort:</label>
+     <select name="sortby" ng-model="sortby">
+        <option value="link.visits">Most Visits</option>
+        <option value="link.created_at">Latest</option>
+        <option value="link.updated_at">Recently Visited</option>
+    </select>
   </div>
-  
-
 
 
 <div ng-controller="myController">
   <ul>
-    <li ng-repeat="link in links | orderBy:link.visits | filter:search:strict">
+    <li ng-repeat="link in links | orderBy:sortby | filter:search:strict">
       <a href="{{link.url}}">{{ link.title }}</a>
-      {{link.visits}}
+      <p>Number of visits: {{link.visits}}<p>
     </li>
   </ul>
 </div>
 
-<!-- <script src="main.js"></script>  -->
+
+
+<script src="main.js"></script> 
 
 <script >   
   angular

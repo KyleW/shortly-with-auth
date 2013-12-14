@@ -17,7 +17,11 @@
       <th>Visits</th>
     </tr>
     <tr ng-repeat="link in links | orderBy:sortby | filter:search:strict">
-      <td><a href="{{link.base_url}}/:{{link.code}}">{{ link.title }}</a></td>
+      <td>
+        <a href="{{link.base_url}}/:{{link.code}}">
+          {{ link.title }}
+        </a>
+      </td>
       <td>{{link.visits}}</td>
     </tr>
   </table>

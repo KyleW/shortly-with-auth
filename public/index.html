@@ -1,9 +1,10 @@
 <!doctype html>
 <html ng-app="myApp">
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.js"></script>
-
+  <script src="main.js"></script> 
+  <script src="controllers.js"></script> 
   <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
@@ -16,14 +17,12 @@
   <div class="navigation">
     <ul>
       <li><a href="#">View Links</a></li>
-      <li><a href="##">Shorten Links</a></li>
+      <li><a href="#/add">Shorten Links</a></li>
     </ul>
   </div>
 
+  <div ng-view></div
 
-
-<script src="main.js"></script> 
-<script src="controllers.js"></script> 
 
 </body>
 </html>

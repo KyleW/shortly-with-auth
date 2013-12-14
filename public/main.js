@@ -2,13 +2,13 @@ angular.module('myApp', ['ngRoute','myControllers'])
   .config(['$routeProvider',
     function($routeProvider) {
       $routeProvider.
-        when('#view', {
+        when('/', {
+          templateUrl: 'templates/viewLinks.html',
+          controller: 'viewLinks'
+        }).
+        when('/add', {
           templateUrl: 'templates/createLinks.html',
           controller: 'createLinks'
-        }).
-        when('#add', {
-          templateUrl: 'templates/addLinks.html',
-          controller: 'viewLinks'
         }).
         otherwise({
           redirectTo: '/'

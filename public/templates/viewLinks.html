@@ -16,7 +16,7 @@
       <th>Sites</th>
       <th>Visits</th>
     </tr>
-    <tr ng-repeat="link in links | filter:search:strict | orderBy: sortBy">
+    <tr ng-repeat="link in links | filter:search:strict | orderBy: sortBy:true">
       <td>
         <a href="{{link.base_url}}/:{{link.code}}">
           {{ link.title }}

@@ -21,4 +21,6 @@ angular.module('myControllers',[])
           $scope.newURL="";
         });
     };
+  }).controller('loginController', function($scope){
+    
   });

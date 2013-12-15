@@ -4,19 +4,19 @@
     <label>Search:</label>
       <input type="text" ng-model="search.url" placeholder="Enter a url here">
     <label>Sort:</label>
-     <select name="sortby" ng-model="sortby">
-        <option value="link.visits">Most Visits</option>
-        <option value="link.created_at">Latest</option>
-        <option value="link.updated_at">Recently Visited</option>
+     <select name="sortBy" ng-model="sortBy">
+        <option value="visits">Most Visits</option>
+        <option value="created_at">Created At</option>
+        <option value="updated_at">Recently Visited</option>
     </select>
   </div>
-
+  <div>sorting by: {{sortBy}}</div>
   <table border = "1" cellspacing="0" >
     <tr>
       <th>Sites</th>
       <th>Visits</th>
     </tr>
-    <tr ng-repeat="link in links | orderBy:sortby | filter:search:strict">
+    <tr ng-repeat="link in links | filter:search:strict | orderBy: sortBy">
       <td>
         <a href="{{link.base_url}}/:{{link.code}}">
           {{ link.title }}
